@@ -46,3 +46,16 @@ Cluster Status: Verified using docker node ls, showing both nodes in a Ready sta
 Load Balancing: Demonstrated by hitting the service endpoint; the response Hostname cycles through different container IDs, proving traffic distribution.
 
 Visualization: Implemented a visualizer tool to monitor container placement in real-time.
+<img width="1902" height="927" alt="image" src="https://github.com/user-attachments/assets/147d1cf1-2c71-4e65-8ef3-b3394b96b3a2" />
+
+## 🛠️ Source Code & Configuration
+The deployment configuration for this cluster is managed via Docker Stack. 
+
+* **Deployment Manifest:** [docker-compose.yml](./docker-compose.yml)
+* **Microservice Image:** [traefik/whoami](https://hub.docker.com/r/traefik/whoami) (RESTful API)
+
+### To deploy this configuration:
+1. Ensure your Swarm cluster is active.
+2. Run the following command on the Manager node:
+   ```bash
+   docker stack deploy -c docker-compose.yml my-stack
