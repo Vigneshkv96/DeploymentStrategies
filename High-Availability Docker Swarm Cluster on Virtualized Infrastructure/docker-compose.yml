@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  whoami-api:
+    image: traefik/whoami:latest
+    networks:
+      - swarm-network
+    deploy:
+      replicas: 4
+      update_config:
+        parallelism: 2
+        delay: 10s
+      restart_policy:
+        condition: on-failure
+    ports:
+      - "80:80"
+
+  visualizer:
+    image: dockersamples/visualizer:latest
+    ports:
+      - "8080:8080"
+    stop_grace_period: 1m
+    networks:
+      - swarm-network
+    deploy:
+      placement:
+        constraints:
+          - node.role == manager
+
+networks:
+  swarm-network:
+    driver: overlay
