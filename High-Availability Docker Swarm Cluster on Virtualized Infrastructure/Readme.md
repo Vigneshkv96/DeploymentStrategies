@@ -59,3 +59,6 @@ The deployment configuration for this cluster is managed via Docker Stack.
 2. Run the following command on the Manager node:
    ```bash
    docker stack deploy -c docker-compose.yml my-stack
+### 📺 Project Walkthrough
+Watch the deployment and load balancing demonstration here:
+[Click to Watch Video](https://www.youtube.com/watch?v=hJ5kw9-YYDk)
